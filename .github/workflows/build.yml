@@ -26,6 +26,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install libogg-dev libvorbis-dev libsdl1.2-dev libglew-dev freeglut3-dev mesa-utils libsdl2-dev libglew-dev -y
           ls ./dependencies/all
+      - name: Fetch Submodules
+        run: |
+          git submodule update --init --recursive 
       - name: Build RSDKv4 Vita
         run: |
           cd RSDKv4.vita
