@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install libogg-dev libvorbis-dev libsdl1.2-dev libsdl2-dev libglew-dev
+          sudo apt-get install libogg-dev libvorbis-dev libsdl1.2-dev libsdl2-dev libglew-dev -y
           ls ./dependencies/all
       - name: Build RSDKv4 Vita
         run: |
