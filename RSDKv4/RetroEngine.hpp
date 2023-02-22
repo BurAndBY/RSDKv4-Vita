@@ -121,63 +121,8 @@ typedef unsigned int uint;
 #define RETRO_RENDERTYPE (RETRO_HW_RENDER)
 #endif
 
-#define RETRO_USING_OPENGL (1)
-
 #define RETRO_SOFTWARE_RENDER (RETRO_RENDERTYPE == RETRO_SW_RENDER)
 //#define RETRO_HARDWARE_RENDER (RETRO_RENDERTYPE == RETRO_HW_RENDER)
-
-#if RETRO_USING_OPENGL
-#if RETRO_PLATFORM == RETRO_ANDROID
-#define GL_GLEXT_PROTOTYPES
-
-#include <GLES/gl.h>
-#include <GLES/glext.h>
-
-#undef glGenFramebuffers
-#undef glBindFramebuffer
-#undef glFramebufferTexture2D
-#undef glDeleteFramebuffers
-
-#undef GL_FRAMEBUFFER
-#undef GL_COLOR_ATTACHMENT0
-#undef GL_FRAMEBUFFER_BINDING
-
-#define glGenFramebuffers      glGenFramebuffersOES
-#define glBindFramebuffer      glBindFramebufferOES
-#define glFramebufferTexture2D glFramebufferTexture2DOES
-#define glDeleteFramebuffers   glDeleteFramebuffersOES
-
-#define GL_FRAMEBUFFER         GL_FRAMEBUFFER_OES
-#define GL_COLOR_ATTACHMENT0   GL_COLOR_ATTACHMENT0_OES
-#define GL_FRAMEBUFFER_BINDING GL_FRAMEBUFFER_BINDING_OES
-#elif RETRO_PLATFORM == RETRO_OSX
-#define GL_GLEXT_PROTOTYPES
-#define GL_SILENCE_DEPRECATION
-
-#include <OpenGL/gl.h>
-#include <OpenGL/glext.h>
-
-#undef glGenFramebuffers
-#undef glBindFramebuffer
-#undef glFramebufferTexture2D
-#undef glDeleteFramebuffers
-
-#undef GL_FRAMEBUFFER
-#undef GL_COLOR_ATTACHMENT0
-#undef GL_FRAMEBUFFER_BINDING
-
-#define glGenFramebuffers      glGenFramebuffersEXT
-#define glBindFramebuffer      glBindFramebufferEXT
-#define glFramebufferTexture2D glFramebufferTexture2DEXT
-#define glDeleteFramebuffers   glDeleteFramebuffersEXT
-
-#define GL_FRAMEBUFFER         GL_FRAMEBUFFER_EXT
-#define GL_COLOR_ATTACHMENT0   GL_COLOR_ATTACHMENT0_EXT
-#define GL_FRAMEBUFFER_BINDING GL_FRAMEBUFFER_BINDING_EXT
-#else
-#include <GL/glew.h>
-#endif
-#endif
 
 #define RETRO_USE_HAPTICS (1)
 
