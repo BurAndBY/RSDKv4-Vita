@@ -26,6 +26,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install make git-core cmake python build-essential libsdl2-dev libvorbis-dev libogg-dev libtheora-dev -y
           ls ./dependencies/all
+          wget https://burandby.github.io/sdl2_vita_20180523.tar.xz
+          tar --no-same-owner --no-same-permissions -C $VITASDK/arm-vita-eabi -xJf sdl2_vita_20180523.tar.xz
       - name: Build RSDKv4 Vita
         run: |
           cd RSDKv4.vita
