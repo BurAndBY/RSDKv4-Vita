@@ -268,7 +268,7 @@ extern bool engineDebugMode;
 #include "ModAPI.hpp"
 
 // Native Entities
-#include "NativeObjects.hpp"
+#include "NativeObjects/NativeObjects.hpp"
 
 class RetroEngine
 {
